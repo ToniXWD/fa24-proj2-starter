@@ -9,10 +9,14 @@
 #   None
 # =================================================================
 abs:
-    # Prologue
+  # Load number from memory
+  lw t0 0(a0)
+  blt t0, zero, done
+  jr ra
+done:
+  # Negate a0
+  sub t0, x0, t0
 
-    # PASTE HERE
-
-    # Epilogue
-
-    jr ra
+  # Store number back to memory
+  sw t0 0(a0)
+  jr ra
